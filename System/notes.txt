@@ -1,0 +1,21 @@
+notes
+apt-get update
+apt-get dist-upgrade
+reboot
+apt install linux-headers-$(uname -r)
+reboot
+apt install nvidia-driver nvidia-xconfig
+---Ctrl+C---------
+blacklist nouveau
+blacklist lbm-nouveau
+options nouveau modeset=0
+alias nouveau off
+alias lbm-nouveau off
+-------------------
+nano /etc/modprobe.d/nvidia-blacklists-nouveau.conf
+Ctrl+Shift+V, Ctrl+X, [Enter]
+update-initramfs -u
+reboot
+apt-get install hashcat-nvidia
+nvidia-smi
+-------
